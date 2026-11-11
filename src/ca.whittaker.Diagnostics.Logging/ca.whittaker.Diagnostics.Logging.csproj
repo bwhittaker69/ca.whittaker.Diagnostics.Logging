@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net9.0;net10.0</TargetFrameworks>
+    <PackageId>ca.whittaker.Diagnostics.Logging</PackageId>
+    <AssemblyName>ca.whittaker.Diagnostics.Logging</AssemblyName>
+    <RootNamespace>ca.whittaker.Diagnostics.Logging</RootNamespace>
+    <Version>1.0.0-preview.1</Version>
+    <Authors>Brett Whittaker</Authors>
+    <Title>Whittaker diagnostic logging</Title>
+    <Description>Instance-scoped diagnostic logging with explicit categories and caller-owned destinations.</Description>
+    <PackageTags>diagnostics;logging;dotnet;whittaker</PackageTags>
+    <Copyright>Copyright (c) 2026 Brett Whittaker</Copyright>
+    <PackageProjectUrl>https://github.com/bwhittaker69/ca.whittaker.Diagnostics.Logging</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/bwhittaker69/ca.whittaker.Diagnostics.Logging</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>bwhittaker69.png</PackageIcon>
+    <PackageReleaseNotes>Initial release: instance enablement, explicit categories, text-writer sink, and original exception forwarding.</PackageReleaseNotes>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <WarningsAsErrors>$(WarningsAsErrors);CS1591</WarningsAsErrors>
+    <DebugType>portable</DebugType>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="/" />
+    <None Include="../../bwhittaker69.png" Pack="true" PackagePath="/" />
+    <None Include="../../LICENSE.txt" Pack="true" PackagePath="/" />
+  </ItemGroup>
+</Project>
