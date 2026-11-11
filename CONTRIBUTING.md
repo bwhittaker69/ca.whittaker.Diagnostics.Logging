@@ -10,6 +10,6 @@ dotnet restore samples/Logging.Sample --source "$PWD/artifacts" --source https:/
 dotnet run --project samples/Logging.Sample -c Release --no-restore
 ```
 
-The sample references a prerelease package, not the source project. Update its version when validating a different package. Review package README/icon/licence/XML paths, dependencies, framework groups, repository commit, symbols, and documentation links before a release.
+The sample references the prepared package, not the source project. Update its version when validating a different package or prerelease. Review package README/icon/licence/XML paths, dependencies, framework groups, repository commit, symbols, and documentation links before a release.
 
 Open an issue to discuss a change, then submit a focused pull request with tests and documentation. Do not include credentials or real customer information. Contributions must be compatible with the repository's GPL-3.0-only licence.

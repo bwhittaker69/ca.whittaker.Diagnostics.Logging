@@ -7,10 +7,10 @@ Small, dependency-free diagnostic logging for .NET applications. Each logger has
 Targets .NET 9 and .NET 10, with no runtime NuGet dependencies. Building the repository requires the .NET 10 SDK and .NET 9 runtime to execute both test targets.
 
 ```powershell
-dotnet add package ca.whittaker.Diagnostics.Logging --version 1.0.0-preview.1
+dotnet add package ca.whittaker.Diagnostics.Logging --version 1.0.0
 ```
 
-This is a prerelease. Published versions are listed on [NuGet](https://www.nuget.org/packages/ca.whittaker.Diagnostics.Logging).
+Version 1.0.0 is prepared for publication. Published versions are listed on [NuGet](https://www.nuget.org/packages/ca.whittaker.Diagnostics.Logging).
 
 ## Quick start
 
@@ -73,7 +73,7 @@ No automatic redaction, severity levels, retention, scope propagation, or asynch
 
 ## Compatibility and migration
 
-This 1.0 prerelease changes the older static helper API. Replace global `EnableLogging` calls with an owned `Logger` instance. Supply a category rather than relying on stack inspection. Supply a destination instead of relying on `Debug.WriteLine`. Convert objects explicitly to strings. Release builds now write when enabled, so choose enablement deliberately.
+Version 1.0 changes the older static helper API. Replace global `EnableLogging` calls with an owned `Logger` instance. Supply a category rather than relying on stack inspection. Supply a destination instead of relying on `Debug.WriteLine`. Convert objects explicitly to strings. Release builds now write when enabled, so choose enablement deliberately.
 
 See [migration guidance](https://github.com/bwhittaker69/ca.whittaker.Diagnostics.Logging/blob/main/docs/migration.md) and the [runnable sample](https://github.com/bwhittaker69/ca.whittaker.Diagnostics.Logging/tree/main/samples/Logging.Sample).
 

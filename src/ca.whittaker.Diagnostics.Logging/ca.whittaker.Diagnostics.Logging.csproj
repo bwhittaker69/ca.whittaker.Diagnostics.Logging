@@ -4,7 +4,7 @@
     <PackageId>ca.whittaker.Diagnostics.Logging</PackageId>
     <AssemblyName>ca.whittaker.Diagnostics.Logging</AssemblyName>
     <RootNamespace>ca.whittaker.Diagnostics.Logging</RootNamespace>
-    <Version>1.0.0-preview.1</Version>
+    <Version>1.0.0</Version>
     <Authors>Brett Whittaker</Authors>
     <Title>Whittaker diagnostic logging</Title>
     <Description>Instance-scoped diagnostic logging with explicit categories and caller-owned destinations.</Description>

@@ -4,6 +4,6 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="ca.whittaker.Diagnostics.Logging" Version="1.0.0-preview.1" />
+    <PackageReference Include="ca.whittaker.Diagnostics.Logging" Version="1.0.0" />
   </ItemGroup>
 </Project>
