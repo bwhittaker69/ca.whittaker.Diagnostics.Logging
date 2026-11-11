@@ -5,7 +5,7 @@ artifacts/
 *.user
 
 # Local assistant instructions and workspace state
-.codex/
+.codex*/
 .agents/
 .claude/
 .cursor/
@@ -17,10 +17,22 @@ artifacts/
 .github/agents/
 .github/prompts/
 AGENTS.md
+AGENTS.override.md
 CLAUDE.md
 GEMINI.md
 SKILL.md
 *.prompt.md
+.mcp.json
+/mcp.json
+*.code-workspace
+
+# Private extraction records and personal skill sources
+DIAGNOSTICS_PUBLIC_PACKAGE_TODO.md
+PUBLIC_REPOSITORY_TODO_*.md
+PUBLIC_LIBRARY_EXTRACTION_PROCESS.md
+library-extraction-*-log.md
+library-extraction-template.md
+/docs/skills/
 
 # Private settings, credentials, and working notes
 .env
