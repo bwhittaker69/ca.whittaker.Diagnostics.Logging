@@ -3,9 +3,9 @@
 Use the .NET 10 SDK with .NET 9 and .NET 10 runtimes. Tests use NUnit and Arrange-Act-Assert.
 
 ```powershell
-dotnet build src/ca.whittaker.Diagnostics.Logging -c Release
-dotnet test tests/ca.whittaker.Diagnostics.Logging.UnitTests -c Release
-dotnet pack src/ca.whittaker.Diagnostics.Logging -c Release -o artifacts
+dotnet build ca.whittaker.Diagnostics.Logging.sln -c Release
+dotnet test ca.whittaker.Diagnostics.Logging.sln -c Release
+dotnet pack ca.whittaker.Diagnostics.Logging.sln -c Release -o artifacts
 dotnet restore samples/Logging.Sample --source "$PWD/artifacts"
 dotnet run --project samples/Logging.Sample -c Release --no-restore
 ```
