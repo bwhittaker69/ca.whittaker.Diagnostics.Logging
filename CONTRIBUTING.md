@@ -6,7 +6,7 @@ Use the .NET 10 SDK with .NET 9 and .NET 10 runtimes. Tests use NUnit and Arrang
 dotnet build src/ca.whittaker.Diagnostics.Logging -c Release
 dotnet test tests/ca.whittaker.Diagnostics.Logging.UnitTests -c Release
 dotnet pack src/ca.whittaker.Diagnostics.Logging -c Release -o artifacts
-dotnet restore samples/Logging.Sample --source artifacts --source https://api.nuget.org/v3/index.json
+dotnet restore samples/Logging.Sample --source "$PWD/artifacts" --source https://api.nuget.org/v3/index.json
 dotnet run --project samples/Logging.Sample -c Release --no-restore
 ```
 

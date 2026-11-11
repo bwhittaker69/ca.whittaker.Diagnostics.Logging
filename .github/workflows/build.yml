@@ -17,5 +17,5 @@ jobs:
       - run: dotnet build src/ca.whittaker.Diagnostics.Logging -c Release
       - run: dotnet test tests/ca.whittaker.Diagnostics.Logging.UnitTests -c Release
       - run: dotnet pack src/ca.whittaker.Diagnostics.Logging -c Release -o artifacts
-      - run: dotnet restore samples/Logging.Sample --source artifacts --source https://api.nuget.org/v3/index.json
+      - run: dotnet restore samples/Logging.Sample --source "$GITHUB_WORKSPACE/artifacts" --source https://api.nuget.org/v3/index.json
       - run: dotnet run --project samples/Logging.Sample -c Release --no-restore
