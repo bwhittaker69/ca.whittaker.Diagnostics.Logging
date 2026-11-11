@@ -28,11 +28,21 @@ jobs:
           dotnet-version: |
             9.0.x
             10.0.x
+      - name: Read package identity and version
+        id: package
+        shell: bash
+        run: |
+          project=ca.whittaker.Diagnostics.Logging/ca.whittaker.Diagnostics.Logging.csproj
+          echo "id=$(dotnet msbuild "$project" -getProperty:PackageId)" >> "$GITHUB_OUTPUT"
+          echo "version=$(dotnet msbuild "$project" -getProperty:PackageVersion)" >> "$GITHUB_OUTPUT"
       - run: dotnet build ca.whittaker.Diagnostics.Logging.sln -c Release
       - run: dotnet test ca.whittaker.Diagnostics.Logging.sln -c Release --no-build
       - run: dotnet pack ca.whittaker.Diagnostics.Logging.sln -c Release --no-build -o artifacts
       - name: Inspect packages and symbols
-        run: dotnet run --project tools/PackageInspector -c Release -- artifacts/ca.whittaker.Diagnostics.Logging.1.0.0.nupkg artifacts/ca.whittaker.Diagnostics.Logging.1.0.0.snupkg https://github.com/bwhittaker69/ca.whittaker.Diagnostics.Logging
+        env:
+          PACKAGE_ID: ${{ steps.package.outputs.id }}
+          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
+        run: dotnet run --project tools/PackageInspector -c Release -- "artifacts/$PACKAGE_ID.$PACKAGE_VERSION.nupkg" "artifacts/$PACKAGE_ID.$PACKAGE_VERSION.snupkg" "https://github.com/$GITHUB_REPOSITORY"
       - run: dotnet restore samples/Logging.Sample --source "$GITHUB_WORKSPACE/artifacts"
       - run: dotnet run --project samples/Logging.Sample -c Release --no-restore
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -74,6 +84,11 @@ jobs:
         with:
           user: BrettWhittaker
       - name: Publish package and associated symbols
+        shell: bash
         env:
           NUGET_API_KEY: ${{ steps.login.outputs.NUGET_API_KEY }}
-        run: dotnet nuget push artifacts/ca.whittaker.Diagnostics.Logging.1.0.0.nupkg --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json
+        run: |
+          packages=(artifacts/*.nupkg)
+          test "${#packages[@]}" -eq 1
+          test -f "${packages[0]}"
+          dotnet nuget push "${packages[0]}" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json
